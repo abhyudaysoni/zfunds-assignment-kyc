@@ -15,7 +15,6 @@ const FATCADeclarationForm = () => {
   const fatca = useSelector((state) => state.fatca);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(fatca);
   const citizenHandler = () => {
     dispatch(setIndianCitizen(!fatca.indianCitizen));
   };
@@ -29,11 +28,7 @@ const FATCADeclarationForm = () => {
     navigate("/confirm-details");
   };
   const skipHandler = () => {
-    const res = prompt("Entered details will be erased. Are you sure? (y/n)");
-    if (res === "n" || res === "") {
-      return;
-    }
-    navigate("/upload-docs");
+    navigate("/confirm-details");
   };
   return (
     <Container>

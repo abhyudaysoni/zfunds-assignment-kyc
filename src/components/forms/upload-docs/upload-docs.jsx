@@ -10,12 +10,6 @@ const UploadDocsForm = () => {
     navigate("/fatca-declaration");
   };
   const skipHandler = () => {
-    const res = prompt(
-      "Uploaded documents will be removed. Are you sure? (y/n)"
-    );
-    if (res === "n" || res === "") {
-      return;
-    }
     navigate("/fatca-declaration");
   };
   return (

@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+import AppRoutes from "./AppRoutes";
+import Header from "./components/header/header";
+
+export const Container = styled.div`
+  main {
+    max-width: 1440px;
+    margin: auto;
+    .btn-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+    }
+  }
+`;
 
 function App() {
+  const store = useSelector((state) => state);
+  console.log(store);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Header />
+      <main>
+        <AppRoutes />
+      </main>
+    </Container>
   );
 }
 

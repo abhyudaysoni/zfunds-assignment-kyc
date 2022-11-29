@@ -8,11 +8,14 @@ export const Container = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 70vh;
   button {
     cursor: pointer;
     font-size: 1.5rem;
     color: #f1e2e2;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
   }
 `;
 

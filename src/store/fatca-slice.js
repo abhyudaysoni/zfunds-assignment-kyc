@@ -1,18 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialFATCAState = {
-  indianCitizen: null,
-  indianTaxResident: null,
-  notPoliticallyExposed: null,
+  indianCitizen: false,
+  indianTaxResident: false,
+  notPoliticallyExposed: false,
 };
 
 const fatcaSlice = createSlice({
   name: "fatcaSlice",
   initialState: initialFATCAState,
   reducers: {
-    setIndianCitizen(state, action) {},
-    setIndianTaxResident(state, action) {},
-    setNotPoliticallyExposed(state, action) {},
+    setIndianCitizen(state, action) {
+      state.indianCitizen = action.payload;
+    },
+    setIndianTaxResident(state, action) {
+      state.indianTaxResident = action.payload;
+    },
+    setNotPoliticallyExposed(state, action) {
+      state.notPoliticallyExposed = action.payload;
+    },
   },
 });
 

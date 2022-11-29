@@ -10,4 +10,14 @@ export const Container = styled.form`
   input {
     max-width: 500px;
   }
+  .docs {
+    display: flex;
+    flex-direction: column;
+  }
+  .break {
+    height: 2px;
+    background: gray;
+    width: 100%;
+    margin: 1rem 0;
+  }
 `;

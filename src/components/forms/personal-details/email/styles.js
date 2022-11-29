@@ -14,6 +14,7 @@ export const Container = styled.div`
     padding: 0;
     overflow: hidden;
     max-width: 500px;
+    margin: 0.3rem 0;
     input {
       min-height: 50px;
       border: none;
@@ -43,6 +44,10 @@ export const Container = styled.div`
       border: 1px solid #32547c;
     }
     button:hover {
+      background: #32547c;
+      color: white;
+    }
+    .active {
       background: #32547c;
       color: white;
     }

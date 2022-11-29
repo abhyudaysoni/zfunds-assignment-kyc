@@ -6,5 +6,6 @@ export const Container = styled.div`
     font-weight: 500;
   }
   input {
+    margin: 0.5rem 0;
   }
 `;

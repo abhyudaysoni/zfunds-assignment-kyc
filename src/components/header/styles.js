@@ -5,7 +5,7 @@ export const Container = styled.header`
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   padding: 1rem;
-  box-shadow: 1px 1px 5px gray;
+  border-bottom: 5px solid #d4e6fa;
   .back {
     cursor: pointer;
     display: flex;
@@ -24,6 +24,8 @@ export const Container = styled.header`
     align-items: center;
     img {
       cursor: pointer;
+      height: 100%;
+      width: 100%;
     }
   }
   .utils {
@@ -36,5 +38,19 @@ export const Container = styled.header`
     min-width: 20px;
     cursor: pointer;
     margin: 0.5rem;
+  }
+  @media (min-width: 1000px) {
+    height: 100px;
+    .back {
+      font-size: 1rem;
+    }
+    .logo-container {
+      width: 120px;
+      img {
+      }
+    }
+    .utils > * {
+      margin: 1rem;
+    }
   }
 `;

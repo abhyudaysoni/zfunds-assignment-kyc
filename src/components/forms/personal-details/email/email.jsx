@@ -12,16 +12,23 @@ const domainArray = [
 ];
 
 const Email = () => {
-  const [domain, setDomain] = useState(domainArray[0]);
+  const [domain, setDomain] = useState("");
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
   const emailHandler = (e) => {
     setEmail(e.target.value);
     dispatch(changeEmail(e.target.value + domain));
+    if (e.target.value === "") {
+      dispatch(changeEmail(""));
+    }
   };
   const domainSelector = (e) => {
+    if (e.target.value === domain) {
+      setDomain("");
+      return;
+    }
     setDomain(e.target.value);
-    dispatch(changeEmail(email + e.target.value));
+    setEmail("");
   };
   return (
     <Container>
@@ -35,13 +42,18 @@ const Email = () => {
             onChange={emailHandler}
             placeholder={domain}
           />
-          {email && <p>{email ? domain : ""}</p>}
+          {domain && <p>{domain ? domain : ""}</p>}
         </div>
       </div>
       <div className="options-container">
-        {domainArray.map((domain, index) => (
-          <Button key={index} value={domain} onClick={domainSelector}>
-            {domain}
+        {domainArray.map((domainItem, index) => (
+          <Button
+            key={index}
+            value={domainItem}
+            className={domain === domainItem ? "active" : ""}
+            onClick={domainSelector}
+          >
+            {domainItem}
           </Button>
         ))}
       </div>

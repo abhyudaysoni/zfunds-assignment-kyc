@@ -1,8 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import styled from "styled-components";
 import AppRoutes from "./AppRoutes";
 import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 
 export const Container = styled.div`
   main {
@@ -18,14 +19,15 @@ export const Container = styled.div`
 `;
 
 function App() {
-  const store = useSelector((state) => state);
-  console.log(store);
+  // const store = useSelector((state) => state);
+  // console.log(store);
   return (
     <Container>
       <Header />
       <main>
         <AppRoutes />
       </main>
+      <Footer />
     </Container>
   );
 }

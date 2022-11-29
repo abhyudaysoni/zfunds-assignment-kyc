@@ -14,6 +14,8 @@ const Button = (props) => {
       className={props.className}
       id={props.id}
       onClick={props.onClick}
+      type={props.type || "button"}
+      value={props.value}
     >
       {props.children}
     </Container>

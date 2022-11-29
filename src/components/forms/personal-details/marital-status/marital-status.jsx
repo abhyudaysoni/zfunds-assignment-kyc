@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { changeMaritalStatus } from "../../../store/personal-slice";
+import { changeMaritalStatus } from "../../../../store/personal-slice";
 import { Container } from "./styles";
 
 const MaritalStatus = () => {

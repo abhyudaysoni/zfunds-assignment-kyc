@@ -6,7 +6,7 @@ import Header from "./components/header/header";
 
 export const Container = styled.div`
   main {
-    max-width: 1440px;
+    max-width: 1000px;
     margin: auto;
     .btn-wrapper {
       display: flex;

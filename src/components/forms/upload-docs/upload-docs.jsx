@@ -22,9 +22,7 @@ const UploadDocsForm = () => {
     refs.map((item) => {
       deleteObject(item)
         .then(() => {})
-        .catch((error) => {
-          alert(error.message);
-        });
+        .catch((error) => {});
       return item;
     });
     resetDocs();

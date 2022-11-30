@@ -28,7 +28,12 @@ PAN Card and upload"
 Click a picture & upload."
         />
       </div>
-      <FormActions onNext={nextHandler} onSkip={skipHandler} />
+      <FormActions
+        onNext={nextHandler}
+        onSkip={skipHandler}
+        heading="Uploaded documents will be removed"
+        description="Are you sure?"
+      />
     </Container>
   );
 };

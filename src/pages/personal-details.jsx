@@ -1,11 +1,10 @@
 import React from "react";
-import PersonalDetailsForm from "../../components/forms/personal-details/personal-details";
-import SubHeader from "../../components/sub-header/sub-header";
-import { Container } from "./styles";
+import PersonalDetailsForm from "../components/forms/personal-details/personal-details";
+import SubHeader from "../components/sub-header/sub-header";
 
 const PersonalDetails = () => {
   return (
-    <Container>
+    <>
       <SubHeader
         heading={"Personal Details"}
         subHeading={"Personal Details"}
@@ -14,7 +13,7 @@ const PersonalDetails = () => {
         }
       />
       <PersonalDetailsForm />
-    </Container>
+    </>
   );
 };
 

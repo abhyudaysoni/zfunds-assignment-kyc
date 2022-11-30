@@ -5,7 +5,7 @@ import Button from "../../UI/button";
 import SkipModal from "../../forms/form-actions/skip-modal";
 import Backdrop from "../../UI/backdrop";
 
-const FormActions = ({ onNext, onSkip }) => {
+const FormActions = ({ onNext, onSkip, heading, description }) => {
   const [skipModal, setSkipModal] = useState();
   const nextHandler = () => {
     onNext();
@@ -30,7 +30,12 @@ const FormActions = ({ onNext, onSkip }) => {
       </Button>
       {skipModal &&
         ReactDOM.createPortal(
-          <SkipModal onYes={onSkip} onCloseModal={closeModalHandler} />,
+          <SkipModal
+            onYes={onSkip}
+            onCloseModal={closeModalHandler}
+            heading={heading}
+            description={description}
+          />,
           document.getElementById("overlay-root")
         )}
       {skipModal &&

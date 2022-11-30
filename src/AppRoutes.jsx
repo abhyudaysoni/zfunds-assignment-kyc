@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import ConfirmDetails from "./pages/confirm-details/confirm-details";
-import FATCADeclaration from "./pages/fatca-declaration/fatca-declaration";
-import Home from "./pages/home/home";
-import PersonalDetails from "./pages/personal-details/personal-details";
-import UploadDocs from "./pages/upload-docs/upload-docs";
+import ConfirmDetails from "./pages/confirm-details";
+import FATCADeclaration from "./pages/fatca-declaration";
+import Home from "./pages/home";
+import PersonalDetails from "./pages/personal-details";
+import UploadDocs from "./pages/upload-docs";
 
 const AppRoutes = () => {
   return (

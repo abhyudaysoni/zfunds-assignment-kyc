@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../../components/UI/button";
+import Button from "../components/UI/button";
 
 export const Container = styled.div`
   display: flex;

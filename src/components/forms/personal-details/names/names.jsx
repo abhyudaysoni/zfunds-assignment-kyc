@@ -30,6 +30,7 @@ const Names = () => {
           value={personal.name}
           onChange={nameHandler}
           placeholder="Your Name"
+          required
         />
       </div>
       <div className="form-item">
@@ -40,6 +41,7 @@ const Names = () => {
           value={personal.motherName}
           onChange={mNameHandler}
           placeholder="Mother's Name"
+          required
         />
       </div>
       <div className="form-item">
@@ -50,6 +52,7 @@ const Names = () => {
           value={personal.fatherName}
           onChange={fNameHandler}
           placeholder="Father's Name"
+          required
         />
       </div>
     </Container>

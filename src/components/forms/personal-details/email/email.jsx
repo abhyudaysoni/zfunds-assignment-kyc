@@ -41,6 +41,7 @@ const Email = () => {
             value={email}
             onChange={emailHandler}
             placeholder={domain}
+            required
           />
           {domain && <p>{domain ? domain : ""}</p>}
         </div>

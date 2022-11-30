@@ -19,6 +19,7 @@ const MaritalStatus = () => {
             name="marital-status"
             value="unmarried"
             onChange={maritalStatusHandler}
+            checked
           />
           <label htmlFor="unmarried">Unmarried</label>
         </div>

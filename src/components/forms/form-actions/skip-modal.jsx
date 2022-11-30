@@ -35,7 +35,7 @@ export const Container = styled.div`
   }
 `;
 
-const SkipModal = ({ onYes, onCloseModal }) => {
+const SkipModal = ({ onYes, onCloseModal, heading, description }) => {
   const yesHandler = () => {
     onYes();
     onCloseModal();
@@ -45,8 +45,8 @@ const SkipModal = ({ onYes, onCloseModal }) => {
   };
   return (
     <Container>
-      <p>You are about to leave this page</p>
-      <p>Are you sure you want to skip?</p>
+      <h4>{heading}</h4>
+      <p>{description}</p>
       <div className="modal-actions">
         <Button id="goBack" onClick={goBackHandler}>
           go back

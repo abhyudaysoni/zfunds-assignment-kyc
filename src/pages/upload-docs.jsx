@@ -1,11 +1,10 @@
 import React from "react";
-import { Container } from "./styles";
-import SubHeader from "../../components/sub-header/sub-header";
-import UploadDocsForm from "../../components/forms/upload-docs/upload-docs";
+import SubHeader from "../components/sub-header/sub-header";
+import UploadDocsForm from "../components/forms/upload-docs/upload-docs";
 
 const UploadDocs = () => {
   return (
-    <Container>
+    <>
       <SubHeader
         heading={"Upload Documents"}
         subHeading={"Upload"}
@@ -14,7 +13,7 @@ const UploadDocs = () => {
         }
       />
       <UploadDocsForm />
-    </Container>
+    </>
   );
 };
 

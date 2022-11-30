@@ -39,6 +39,7 @@ const Income = () => {
             name="annual-income"
             value="5-10 lakhs"
             onChange={incomeHandler}
+            checked
           />
           <label htmlFor="5-10-lakhs">5 - 10 lakhs</label>
         </div>

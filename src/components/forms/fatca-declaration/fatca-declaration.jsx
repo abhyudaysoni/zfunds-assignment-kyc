@@ -59,7 +59,12 @@ const FATCADeclarationForm = () => {
           />
         </div>
       </div>
-      <FormActions onNext={nextHandler} onSkip={skipHandler} />
+      <FormActions
+        onNext={nextHandler}
+        onSkip={skipHandler}
+        heading="Entered details will be lost"
+        description="Are you sure?"
+      />
     </Container>
   );
 };

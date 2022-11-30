@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ConfirmPreviewCard from "../UI/confirm-preview-card";
 import { Container } from "./styles";
@@ -12,10 +12,19 @@ import { resetFatca } from "../../store/fatca-slice";
 const ConfirmPreview = () => {
   const state = useSelector((state) => state);
   const navigate = useNavigate();
+  const [terms, setTerms] = useState(false);
   const editHandler = (editRoute) => {
     navigate(editRoute);
   };
+  const termsHandler = (e) => {
+    console.log(e);
+    setTerms(!terms);
+  };
   const submitHandler = () => {
+    if (!terms) {
+      alert("Check Terms First");
+      return;
+    }
     updateData(state, state.id);
     navigate("/");
   };
@@ -75,7 +84,13 @@ const ConfirmPreview = () => {
         editRoute="/upload-docs"
       />
       <div className="terms-conditions">
-        <input type="checkbox" id="terms" />
+        <input
+          type="checkbox"
+          id="terms"
+          name="terms"
+          value={terms}
+          onChange={termsHandler}
+        />
         <label htmlFor="terms">
           I have acknowledged all terms & conditions.
         </label>

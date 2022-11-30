@@ -50,6 +50,10 @@ const personalSlice = createSlice({
       state.email = intitialPersonalState.email;
       state.annualIncome = intitialPersonalState.annualIncome;
     },
+    changePersonalDetails(state, action) {
+      state = action.payload;
+      return state;
+    },
   },
 });
 
@@ -64,6 +68,7 @@ export const {
   changeGender,
   changeDob,
   resetPersonal,
+  changePersonalDetails,
 } = personalSlice.actions;
 
 export default personalSlice.reducer;

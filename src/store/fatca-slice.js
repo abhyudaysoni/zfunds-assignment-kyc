@@ -23,6 +23,10 @@ const fatcaSlice = createSlice({
       state = initialFATCAState;
       return state;
     },
+    setFatca(state, action) {
+      state = action.payload;
+      return state;
+    },
   },
 });
 
@@ -31,6 +35,7 @@ export const {
   setIndianTaxResident,
   setNotPoliticallyExposed,
   resetFatca,
+  setFatca,
 } = fatcaSlice.actions;
 
 export default fatcaSlice.reducer;

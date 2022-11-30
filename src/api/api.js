@@ -8,15 +8,11 @@ import {
 } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import {
-  changeAddress,
-  changeDob,
-  changeGender,
-  changeName,
-} from "../store/personal-slice";
+import { changePersonalDetails } from "../store/personal-slice";
 import { setId } from "../store/id-slice";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { setPan, setPhoto, setSignature } from "../store/documents-slice";
+import { setFatca } from "../store/fatca-slice";
 
 const collectionRef = collection(database, "users");
 
@@ -51,10 +47,8 @@ export const useGetData = () => {
         });
       });
       dispatch(setId(fid));
-      dispatch(changeAddress(data.personal.address));
-      dispatch(changeName(data.personal.name));
-      dispatch(changeGender(data.personal.gender));
-      dispatch(changeDob(data.personal.dob));
+      dispatch(changePersonalDetails(data.personal));
+      dispatch(setFatca(data.fatca));
     });
   }, [dispatch]);
 };

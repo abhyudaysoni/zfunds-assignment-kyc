@@ -23,23 +23,34 @@ const UploadDocsForm = () => {
           heading="PAN Card"
           description="Click a picture of your
 PAN Card and upload"
-          docs={state.docs.pan}
+          docType="pan"
+          id={state.id}
+          img={state.docs.pan}
         />
+
         <div className="break"></div>
+
         <DocToUpload
           heading="Signature"
           description="Sign on a blank white paper
 (same as in Bank records).
 Click a picture & upload."
-          docs={state.docs.signature}
+          docType="signature"
+          id={state.id}
+          img={state.docs.signature}
         />
+
         <div className="break"></div>
+
         <DocToUpload
           heading="Photo"
           description="Upload your well lit, passport size photograph."
-          docs={state.docs.photo}
+          docType="photo"
+          id={state.id}
+          img={state.docs.photo}
         />
       </div>
+      
       <FormActions
         onNext={nextHandler}
         onSkip={skipHandler}

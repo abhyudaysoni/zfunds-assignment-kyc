@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "./styles";
 import docContainer from "../../../../assets/doc-container.svg";
 import deleteDoc from "../../../../assets/delete-doc.svg";
+import { ref, uploadBytes, deleteObject } from "firebase/storage";
+import { storage } from "../../../../firebaseConfig";
+import { useGetData } from "../../../../api/api";
 
-const DocToUpload = ({ heading, description, docs }) => {
-  const [doc, setDoc] = useState(docs);
+const DocToUpload = ({ heading, description, docType, id, img }) => {
+  const [doc, setDoc] = useState(null);
   const uploadDocHandler = (e) => {
-    setDoc(e.target.value);
-    console.log(e.target.value);
+    setDoc(e.target.files[0]);
   };
+  useGetData();
+  const imageRef = ref(storage, `${id}/${docType}`);
+  useEffect(() => {
+    if (doc === null) {
+      return;
+    }
+    uploadBytes(imageRef, doc).then((res) => {});
+    setDoc(null);
+  }, [doc, docType, id, imageRef]);
   const deleteDocHandler = () => {
-    console.log("del");
+    deleteObject(imageRef)
+      .then(() => {})
+      .catch((error) => {
+        alert(error.message);
+      });
+    setDoc(null);
   };
   return (
     <Container>
@@ -21,14 +37,13 @@ const DocToUpload = ({ heading, description, docs }) => {
       <div className="document-container">
         <input
           type="file"
-          id="doc-input"
+          id={`${docType}-input`}
           onChange={uploadDocHandler}
-          accept=".jpg, .pdf, .png"
-          value={doc}
+          accept=".jpg, .pdf, .png, .jpeg"
         />
-        <label htmlFor="doc-input">
-          {!doc && <img src={docContainer} id="upload-doc" alt="" />}
-          {doc && <img src={doc} id="upload-doc" alt="" />}
+        <label htmlFor={`${docType}-input`}>
+          {!img && <img src={docContainer} id="doc-container" alt="null" />}
+          {img && <img src={img} id="doc" alt={docType} />}
         </label>
         <img
           src={deleteDoc}

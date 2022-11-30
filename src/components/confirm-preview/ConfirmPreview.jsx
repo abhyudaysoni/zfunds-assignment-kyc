@@ -66,9 +66,9 @@ const ConfirmPreview = () => {
         heading="Documents:"
         footnotes=""
         content={[
-          ["Photo", "Image"],
-          ["PAN Card", "Image"],
-          ["Signature", "Image"],
+          ["Photo", state.docs.photo],
+          ["PAN Card", state.docs.pan],
+          ["Signature", state.docs.signature],
         ]}
         editable={true}
         onEdit={editHandler}

@@ -15,8 +15,12 @@ export const Container = styled.div`
     width: 150px;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     input {
       display: none;
+    }
+    #doc {
+      width: 100%;
     }
     #delete-doc {
       position: relative;

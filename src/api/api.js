@@ -1,4 +1,4 @@
-import { database } from "../firebaseConfig";
+import { database, storage } from "../firebaseConfig";
 import {
   collection,
   addDoc,
@@ -15,6 +15,8 @@ import {
   changeName,
 } from "../store/personal-slice";
 import { setId } from "../store/id-slice";
+import { getDownloadURL, listAll, ref } from "firebase/storage";
+import { setPan, setPhoto, setSignature } from "../store/documents-slice";
 
 const collectionRef = collection(database, "users");
 
@@ -34,6 +36,20 @@ export const useGetData = () => {
     getDocs(collectionRef).then((res) => {
       const data = res.docs[0].data();
       const fid = res.docs[0].id;
+      const imageRef = ref(storage, fid);
+      listAll(imageRef).then((res) => {
+        res.items.forEach((item) => {
+          getDownloadURL(item).then((url) => {
+            if (url.includes("pan")) {
+              dispatch(setPan(url));
+            } else if (url.includes("photo")) {
+              dispatch(setPhoto(url));
+            } else if (url.includes("signature")) {
+              dispatch(setSignature(url));
+            }
+          });
+        });
+      });
       dispatch(setId(fid));
       dispatch(changeAddress(data.personal.address));
       dispatch(changeName(data.personal.name));
@@ -54,5 +70,3 @@ export const updateData = (user, id) => {
     alert(err.message);
   }
 };
-
-export const uploadPhoto = () => {};

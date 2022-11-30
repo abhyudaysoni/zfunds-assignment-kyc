@@ -19,6 +19,10 @@ const fatcaSlice = createSlice({
     setNotPoliticallyExposed(state, action) {
       state.notPoliticallyExposed = action.payload;
     },
+    resetFatca(state, action) {
+      state = initialFATCAState;
+      return state;
+    },
   },
 });
 
@@ -26,6 +30,7 @@ export const {
   setIndianCitizen,
   setIndianTaxResident,
   setNotPoliticallyExposed,
+  resetFatca,
 } = fatcaSlice.actions;
 
 export default fatcaSlice.reducer;

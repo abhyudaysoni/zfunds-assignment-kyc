@@ -6,6 +6,7 @@ import Email from "./email/email";
 import Income from "./income/income";
 import FormActions from "../form-actions/form-actions";
 import { useNavigate } from "react-router-dom";
+import { resetPersonal } from "../../../store/personal-slice";
 
 const PersonalDetailsForm = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const PersonalDetailsForm = () => {
     navigate("/upload-docs");
   };
   const skipHandler = () => {
+    resetPersonal();
     navigate("/upload-docs");
   };
   return (

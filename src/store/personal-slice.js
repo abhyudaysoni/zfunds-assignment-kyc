@@ -43,7 +43,7 @@ const personalSlice = createSlice({
     changeDob(state, action) {
       state.gender = action.payload;
     },
-    resetState(state, action) {
+    resetPersonal(state, action) {
       state.married = intitialPersonalState.married;
       state.fatherName = intitialPersonalState.fatherName;
       state.motherName = intitialPersonalState.motherName;
@@ -60,10 +60,10 @@ export const {
   changeMotherName,
   changeEmail,
   changeAnnualIncome,
-  resetState,
   changeAddress,
   changeGender,
   changeDob,
+  resetPersonal,
 } = personalSlice.actions;
 
 export default personalSlice.reducer;

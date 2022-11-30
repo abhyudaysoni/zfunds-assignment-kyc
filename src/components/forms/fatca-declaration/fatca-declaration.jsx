@@ -5,6 +5,7 @@ import toggleOff from "../../../assets/toggle-off.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
+  resetFatca,
   setIndianCitizen,
   setIndianTaxResident,
   setNotPoliticallyExposed,
@@ -28,6 +29,7 @@ const FATCADeclarationForm = () => {
     navigate("/confirm-details");
   };
   const skipHandler = () => {
+    resetFatca();
     navigate("/confirm-details");
   };
   return (

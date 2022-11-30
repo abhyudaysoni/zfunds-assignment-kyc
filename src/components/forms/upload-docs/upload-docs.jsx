@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import FormActions from "../form-actions/form-actions";
 import DocToUpload from "./document/doc-to-upload";
 import { useSelector } from "react-redux";
+import { resetDocs } from "../../../store/documents-slice";
 
 const UploadDocsForm = () => {
   const state = useSelector((state) => state);
@@ -12,6 +13,7 @@ const UploadDocsForm = () => {
     navigate("/fatca-declaration");
   };
   const skipHandler = () => {
+    resetDocs();
     navigate("/fatca-declaration");
   };
   return (

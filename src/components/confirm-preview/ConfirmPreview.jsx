@@ -5,6 +5,9 @@ import { Container } from "./styles";
 import { useNavigate } from "react-router-dom";
 import Button from "../UI/button";
 import { updateData } from "../../api/api";
+import { resetPersonal } from "../../store/personal-slice";
+import { resetDocs } from "../../store/documents-slice";
+import { resetFatca } from "../../store/fatca-slice";
 
 const ConfirmPreview = () => {
   const state = useSelector((state) => state);
@@ -14,9 +17,14 @@ const ConfirmPreview = () => {
   };
   const submitHandler = () => {
     updateData(state, state.id);
-    console.log();
+    navigate("/");
   };
-  const cancelHandler = () => {};
+  const cancelHandler = () => {
+    resetPersonal();
+    resetDocs();
+    resetFatca();
+    navigate("/");
+  };
   return (
     <Container>
       <ConfirmPreviewCard

@@ -48,7 +48,7 @@ export const updateData = (user, id) => {
     const docToUpdate = doc(database, "users", id);
     updateDoc(docToUpdate, user).then((res) => {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
-      alert("data updated");
+      alert("Data updated Successfully");
     });
   } catch (err) {
     alert(err.message);

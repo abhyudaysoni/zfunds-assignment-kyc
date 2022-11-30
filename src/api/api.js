@@ -14,13 +14,14 @@ import {
   changeGender,
   changeName,
 } from "../store/personal-slice";
+import { setId } from "../store/id-slice";
 
 const collectionRef = collection(database, "users");
 
 export const addData = (user) => {
   try {
     addDoc(collectionRef, user).then((res) => {
-      alert("data added");
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
   } catch (err) {
     alert(err.message);
@@ -32,6 +33,8 @@ export const useGetData = () => {
   useEffect(() => {
     getDocs(collectionRef).then((res) => {
       const data = res.docs[0].data();
+      const fid = res.docs[0].id;
+      dispatch(setId(fid));
       dispatch(changeAddress(data.personal.address));
       dispatch(changeName(data.personal.name));
       dispatch(changeGender(data.personal.gender));
@@ -40,13 +43,16 @@ export const useGetData = () => {
   }, [dispatch]);
 };
 
-export const updateData = (user, fid) => {
+export const updateData = (user, id) => {
   try {
-    const docToUpdate = doc(database, "user", fid);
+    const docToUpdate = doc(database, "users", id);
     updateDoc(docToUpdate, user).then((res) => {
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
       alert("data updated");
     });
   } catch (err) {
     alert(err.message);
   }
 };
+
+export const uploadPhoto = () => {};

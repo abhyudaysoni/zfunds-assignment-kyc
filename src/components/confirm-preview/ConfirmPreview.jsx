@@ -3,14 +3,20 @@ import { useSelector } from "react-redux";
 import ConfirmPreviewCard from "../UI/confirm-preview-card";
 import { Container } from "./styles";
 import { useNavigate } from "react-router-dom";
+import Button from "../UI/button";
+import { updateData } from "../../api/api";
 
 const ConfirmPreview = () => {
   const state = useSelector((state) => state);
   const navigate = useNavigate();
   const editHandler = (editRoute) => {
-    console.log(editRoute);
     navigate(editRoute);
   };
+  const submitHandler = () => {
+    updateData(state, state.id);
+    console.log();
+  };
+  const cancelHandler = () => {};
   return (
     <Container>
       <ConfirmPreviewCard
@@ -60,6 +66,20 @@ const ConfirmPreview = () => {
         onEdit={editHandler}
         editRoute="/upload-docs"
       />
+      <div className="terms-conditions">
+        <input type="checkbox" id="terms" />
+        <label htmlFor="terms">
+          I have acknowledged all terms & conditions.
+        </label>
+      </div>
+      <div className="confirm-actions">
+        <Button id="submit" onClick={submitHandler}>
+          Submit
+        </Button>
+        <Button id="cancel" onClick={cancelHandler}>
+          Cancel
+        </Button>
+      </div>
     </Container>
   );
 };

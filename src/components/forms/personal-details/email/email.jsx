@@ -40,7 +40,7 @@ const Email = () => {
             id="email"
             value={email}
             onChange={emailHandler}
-            placeholder={domain}
+            placeholder={domain || "E-mail ID"}
             required
           />
           {domain && <p>{domain ? domain : ""}</p>}

@@ -1,12 +1,12 @@
 import React from "react";
-// import { useSelector } from "react-redux";
 import styled from "styled-components";
 import AppRoutes from "./AppRoutes";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
+import { useSelector } from "react-redux";
 // import { sampleUser } from "./constants/sampleData";
-import { useGetData } from "./api/api";
 // import { addData } from "./api/api";
+import { useGetData } from "./api/api";
 
 export const Container = styled.div`
   main {
@@ -22,8 +22,8 @@ export const Container = styled.div`
 `;
 
 function App() {
-  // const store = useSelector((state) => state);
-  // console.log(store);
+  const store = useSelector((state) => state);
+  console.log(store);
   // addData(sampleUser);
   useGetData();
   return (

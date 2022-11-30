@@ -5,6 +5,8 @@ import FormActions from "../form-actions/form-actions";
 import DocToUpload from "./document/doc-to-upload";
 import { useSelector } from "react-redux";
 import { resetDocs } from "../../../store/documents-slice";
+import { ref, deleteObject } from "firebase/storage";
+import { storage } from "../../../firebaseConfig";
 
 const UploadDocsForm = () => {
   const state = useSelector((state) => state);
@@ -13,6 +15,18 @@ const UploadDocsForm = () => {
     navigate("/fatca-declaration");
   };
   const skipHandler = () => {
+    const image1Ref = ref(storage, `${state.id}/pan`);
+    const image2Ref = ref(storage, `${state.id}/photo`);
+    const image3Ref = ref(storage, `${state.id}/signature`);
+    const refs = [image1Ref, image2Ref, image3Ref];
+    refs.map((item) => {
+      deleteObject(item)
+        .then(() => {})
+        .catch((error) => {
+          alert(error.message);
+        });
+      return item;
+    });
     resetDocs();
     navigate("/fatca-declaration");
   };
@@ -50,7 +64,7 @@ Click a picture & upload."
           img={state.docs.photo}
         />
       </div>
-      
+
       <FormActions
         onNext={nextHandler}
         onSkip={skipHandler}

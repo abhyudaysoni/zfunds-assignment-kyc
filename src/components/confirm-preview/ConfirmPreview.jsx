@@ -20,12 +20,8 @@ const ConfirmPreview = () => {
         footnotes="You cannot edit above details as they are already verified through Digilocker."
         content={[
           ["Gender", "Male"],
-          ["Date of Birth", "DD/MM/YYYY"],
-          [
-            "Address",
-            "Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore",
-          ],
-          ["Pin Code", "560016"],
+          ["Date of Birth", state.personal.dob],
+          ["Address", state.personal.address],
         ]}
       />
       <ConfirmPreviewCard

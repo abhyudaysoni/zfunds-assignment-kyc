@@ -27,6 +27,11 @@ PAN Card and upload"
 (same as in Bank records).
 Click a picture & upload."
         />
+        <div className="break"></div>
+        <DocToUpload
+          heading="Photo"
+          description="Upload your well lit, passport size photograph."
+        />
       </div>
       <FormActions
         onNext={nextHandler}

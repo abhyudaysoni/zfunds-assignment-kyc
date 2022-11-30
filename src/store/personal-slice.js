@@ -7,6 +7,9 @@ const intitialPersonalState = {
   motherName: "",
   email: "",
   annualIncome: "",
+  address: "",
+  gender: "",
+  dob: "",
 };
 
 const personalSlice = createSlice({
@@ -31,8 +34,16 @@ const personalSlice = createSlice({
     changeAnnualIncome(state, action) {
       state.annualIncome = action.payload;
     },
+    changeAddress(state, action) {
+      state.address = action.payload;
+    },
+    changeGender(state, action) {
+      state.gender = action.payload;
+    },
+    changeDob(state, action) {
+      state.gender = action.payload;
+    },
     resetState(state, action) {
-      state.name = intitialPersonalState.name;
       state.married = intitialPersonalState.married;
       state.fatherName = intitialPersonalState.fatherName;
       state.motherName = intitialPersonalState.motherName;
@@ -50,6 +61,9 @@ export const {
   changeEmail,
   changeAnnualIncome,
   resetState,
+  changeAddress,
+  changeGender,
+  changeDob,
 } = personalSlice.actions;
 
 export default personalSlice.reducer;

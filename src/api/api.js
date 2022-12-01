@@ -61,6 +61,6 @@ export const updateData = (user, id) => {
       alert("Data updated Successfully");
     });
   } catch (err) {
-    alert(err.message);
+    // alert(err.message);
   }
 };

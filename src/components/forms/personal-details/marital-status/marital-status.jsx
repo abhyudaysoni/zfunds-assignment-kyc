@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { updateData } from "../../../../api/api";
 import { changeMaritalStatus } from "../../../../store/personal-slice";
 import { Container } from "./styles";
 
@@ -7,6 +8,7 @@ const MaritalStatus = () => {
   const dispatch = useDispatch();
   const maritalStatusHandler = (e) => {
     dispatch(changeMaritalStatus(e.target.value === "married" ? true : false));
+    updateData();
   };
   return (
     <Container>
@@ -19,7 +21,6 @@ const MaritalStatus = () => {
             name="marital-status"
             value="unmarried"
             onChange={maritalStatusHandler}
-            checked
           />
           <label htmlFor="unmarried">Unmarried</label>
         </div>

@@ -11,9 +11,11 @@ import {
   setNotPoliticallyExposed,
 } from "../../../store/fatca-slice";
 import FormActions from "../form-actions/form-actions";
+import { updateData } from "../../../api/api";
 
 const FATCADeclarationForm = () => {
-  const fatca = useSelector((state) => state.fatca);
+  const state = useSelector((state) => state);
+  const fatca = state.fatca;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const citizenHandler = () => {
@@ -26,6 +28,7 @@ const FATCADeclarationForm = () => {
     dispatch(setNotPoliticallyExposed(!fatca.notPoliticallyExposed));
   };
   const nextHandler = () => {
+    updateData(state, state.id);
     navigate("/confirm-details");
   };
   const skipHandler = () => {

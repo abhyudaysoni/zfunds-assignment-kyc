@@ -7,10 +7,14 @@ import Income from "./income/income";
 import FormActions from "../form-actions/form-actions";
 import { useNavigate } from "react-router-dom";
 import { resetPersonal } from "../../../store/personal-slice";
+import { updateData } from "../../../api/api";
+import { useSelector } from "react-redux";
 
 const PersonalDetailsForm = () => {
   const navigate = useNavigate();
+  const state = useSelector((state) => state);
   const nextHandler = () => {
+    updateData(state, state.id);
     navigate("/upload-docs");
   };
   const skipHandler = () => {

@@ -25,7 +25,8 @@ const ConfirmPreview = () => {
       alert("Check Terms First");
       return;
     }
-    updateData(state, state.id);
+    const agreedToTerms = true;
+    updateData({ ...state, agreedToTerms: agreedToTerms }, state.id);
     navigate("/");
   };
   const cancelHandler = () => {

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const intitialPersonalState = {
+export const intitialPersonalState = {
   name: "",
   married: null,
   fatherName: "",

@@ -7,12 +7,14 @@ import { useSelector } from "react-redux";
 import { resetDocs } from "../../../store/documents-slice";
 import { ref, deleteObject } from "firebase/storage";
 import { storage } from "../../../firebaseConfig";
+import { updateData } from "../../../api/api";
 
 const UploadDocsForm = () => {
   const state = useSelector((state) => state);
   const navigate = useNavigate();
   const nextHandler = () => {
     navigate("/fatca-declaration");
+    updateData(state, state.id);
   };
   const skipHandler = () => {
     const image1Ref = ref(storage, `${state.id}/pan`);

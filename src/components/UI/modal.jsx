@@ -20,7 +20,7 @@ export const Container = styled.div`
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 80%;
   button {
     max-width: 200px;
     width: 100%;

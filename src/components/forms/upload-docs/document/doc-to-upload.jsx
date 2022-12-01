@@ -18,7 +18,6 @@ const DocToUpload = ({ heading, description, docType, id, img }) => {
       return;
     }
     uploadBytes(imageRef, doc).then((res) => {});
-    setDoc(null);
   }, [doc, docType, id, imageRef]);
   const deleteDocHandler = () => {
     deleteObject(imageRef)
@@ -26,7 +25,6 @@ const DocToUpload = ({ heading, description, docType, id, img }) => {
       .catch((error) => {
         alert(error.message);
       });
-    setDoc(null);
   };
   return (
     <Container>

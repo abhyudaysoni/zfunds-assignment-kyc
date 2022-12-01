@@ -29,6 +29,7 @@ export const Container = styled.div`
       height: 20px;
       right: 25px;
       cursor: pointer;
+      display: ${(props) => (props.isDoc ? "block" : "none")};
     }
   }
 `;

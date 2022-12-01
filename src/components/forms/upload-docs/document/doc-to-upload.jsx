@@ -23,11 +23,12 @@ const DocToUpload = ({ heading, description, docType, id, img }) => {
     deleteObject(imageRef)
       .then(() => {})
       .catch((error) => {
-        alert(error.message);
+        alert("No document Found");
       });
+    setDoc(null);
   };
   return (
-    <Container>
+    <Container isDoc={doc || img ? true : false}>
       <div className="document-description">
         <h3>{heading}</h3>
         <p>{description}</p>
@@ -40,8 +41,10 @@ const DocToUpload = ({ heading, description, docType, id, img }) => {
           accept=".jpg, .pdf, .png, .jpeg"
         />
         <label htmlFor={`${docType}-input`}>
-          {!img && <img src={docContainer} id="doc-container" alt="null" />}
-          {img && <img src={img} id="doc" alt={docType} />}
+          {!doc && !img && (
+            <img src={docContainer} id="doc-container" alt="null" />
+          )}
+          {(img || doc) && <img src={img} id="doc" alt={doc?.name} />}
         </label>
         <img
           src={deleteDoc}

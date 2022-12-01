@@ -27,7 +27,7 @@ const ConfirmPreview = () => {
     }
     const agreedToTerms = true;
     updateData({ ...state, agreedToTerms: agreedToTerms }, state.id);
-    navigate("/");
+    navigate("/success");
   };
   const cancelHandler = () => {
     resetPersonal();

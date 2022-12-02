@@ -1,11 +1,5 @@
 import { database, storage } from "../firebaseConfig";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  updateDoc,
-  doc,
-} from "firebase/firestore";
+import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { changePersonalDetails } from "../store/personal-slice";
@@ -15,16 +9,6 @@ import { setPan, setPhoto, setSignature } from "../store/documents-slice";
 import { setFatca } from "../store/fatca-slice";
 
 const collectionRef = collection(database, "users");
-
-export const addData = (user) => {
-  try {
-    addDoc(collectionRef, user).then((res) => {
-      // document.body.scrollTop = document.documentElement.scrollTop = 0;
-    });
-  } catch (err) {
-    alert(err.message);
-  }
-};
 
 export const useGetData = () => {
   const dispatch = useDispatch();
@@ -57,7 +41,7 @@ export const updateData = (user, id) => {
   try {
     const docToUpdate = doc(database, "users", id);
     updateDoc(docToUpdate, user).then((res) => {
-      // document.body.scrollTop = document.documentElement.scrollTop = 0;
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
   } catch (err) {
     // alert(err.message);

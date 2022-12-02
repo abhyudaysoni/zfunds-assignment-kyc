@@ -84,24 +84,39 @@ const ConfirmPreview = () => {
         onEdit={editHandler}
         editRoute="/upload-docs"
       />
-      <div className="terms-conditions">
-        <input
-          type="checkbox"
-          id="terms"
-          name="terms"
-          value={terms}
-          onChange={termsHandler}
-        />
-        <label htmlFor="terms">
-          I have acknowledged all terms & conditions.
-        </label>
-      </div>
+      {state.docs.pan.includes("https://") &&
+        state.docs.photo.includes("https://") &&
+        state.docs.signature.includes("https://") && (
+          <div className="terms-conditions">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              value={terms}
+              onChange={termsHandler}
+            />
+            <label htmlFor="terms">
+              I have acknowledged all terms & conditions.
+            </label>
+          </div>
+        )}
       <div className="confirm-actions">
-        <Button id="submit" onClick={submitHandler}>
-          Submit
-        </Button>
+        {state.docs.pan.includes("https://") &&
+          state.docs.photo.includes("https://") &&
+          state.docs.signature.includes("https://") && (
+            <Button id="submit" onClick={submitHandler}>
+              Submit
+            </Button>
+          )}
+        {!state.docs.pan.includes("https://") &&
+          !state.docs.photo.includes("https://") &&
+          !state.docs.signature.includes("https://") && (
+            <h4>
+              You have not uploaded documents. You can not submit the form.
+            </h4>
+          )}
         <Button id="cancel" onClick={cancelHandler}>
-          Cancel
+          Cancel and go back
         </Button>
       </div>
     </Container>

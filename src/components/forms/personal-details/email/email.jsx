@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeEmail } from "../../../../store/personal-slice";
 import Button from "../../../UI/button";
 import { Container } from "./styles";
@@ -12,8 +12,9 @@ const domainArray = [
 ];
 
 const Email = () => {
+  const personal = useSelector((state) => state.personal);
   const [domain, setDomain] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(personal.email);
   const dispatch = useDispatch();
   const emailHandler = (e) => {
     setEmail(e.target.value);

@@ -30,9 +30,12 @@ const ConfirmPreviewItem = ({ heading, value }) => {
       isImage = true;
     }
   }
+  const isBoolean = typeof value === "boolean" ? true : false;
+
   return (
     <Container isImage={isImage}>
       <p className="heading">{heading || "Not Available"}</p>
+      {isBoolean && <p className="value">{value ? "Yes" : "No"}</p>}
       {!isImage && <p className="value">{value}</p>}
       {isImage && (
         <div className="value-container">

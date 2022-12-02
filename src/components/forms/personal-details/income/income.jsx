@@ -15,6 +15,16 @@ const Income = () => {
         <div className="option">
           <input
             type="radio"
+            id="0"
+            name="annual-income"
+            value="0"
+            onChange={incomeHandler}
+          />
+          <label htmlFor="0">0</label>
+        </div>
+        <div className="option">
+          <input
+            type="radio"
             id="below-1-lakh"
             name="annual-income"
             value="Below 1 lakh"

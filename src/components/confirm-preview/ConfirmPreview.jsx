@@ -63,7 +63,7 @@ const ConfirmPreview = () => {
         footnotes=""
         content={[
           ["Email", state.personal.email],
-          ["Marital Status", state.personal.isMarried],
+          ["Marital Status", state.personal.married],
           ["Father's Name", state.personal.fatherName],
           ["Mother's Name", state.personal.motherName],
           ["Annual Income", state.personal.annualIncome],

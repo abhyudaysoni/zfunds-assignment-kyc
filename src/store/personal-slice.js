@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const intitialPersonalState = {
   name: "",
-  married: null,
+  married: false,
   fatherName: "",
   motherName: "",
   email: "",

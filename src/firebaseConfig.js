@@ -14,3 +14,9 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const database = getFirestore(app);
 export const storage = getStorage(app);
+
+/*
+
+https://console.firebase.google.com/project/zfunds-assignment/firestore/data/~2Fusers~2FYTHNcFofJNqTU98zKGtk
+
+*/

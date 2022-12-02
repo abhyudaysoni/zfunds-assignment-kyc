@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  display: grid;
+  display: ${(props) => (props.isHome ? "flex" : "grid")};
+  ${(props) => (props.isHome ? "justify-content: space-between" : "")};
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   padding: 1rem;

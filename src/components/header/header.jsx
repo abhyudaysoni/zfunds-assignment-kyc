@@ -7,6 +7,7 @@ import { Container } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const path = window.location.pathname;
   const navigate = useNavigate();
   const goHomeHandler = () => {
     navigate("/");
@@ -15,11 +16,13 @@ const Header = () => {
     navigate(-1);
   };
   return (
-    <Container>
-      <div className="back" onClick={goBackHandler}>
-        <img src={backArrow} alt="back-arrow" />
-        <h3>Back</h3>
-      </div>
+    <Container isHome={path === "/"}>
+      {path !== "/" && (
+        <div className="back" onClick={goBackHandler}>
+          <img src={backArrow} alt="back-arrow" />
+          <h3>Back</h3>
+        </div>
+      )}
       <div className="logo-container">
         <img src={logo} onClick={goHomeHandler} alt="logo" />
       </div>

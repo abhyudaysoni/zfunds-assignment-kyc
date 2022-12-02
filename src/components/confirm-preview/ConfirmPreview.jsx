@@ -52,7 +52,7 @@ const ConfirmPreview = () => {
         heading="Personal Details:"
         footnotes="You cannot edit above details as they are already verified through Digilocker."
         content={[
-          ["Gender", "Male"],
+          ["Gender", state.personal.gender],
           ["Date of Birth", state.personal.dob],
           ["Address", state.personal.address],
         ]}

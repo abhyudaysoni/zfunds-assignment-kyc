@@ -19,7 +19,7 @@ const collectionRef = collection(database, "users");
 export const addData = (user) => {
   try {
     addDoc(collectionRef, user).then((res) => {
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      // document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
   } catch (err) {
     alert(err.message);
@@ -57,7 +57,7 @@ export const updateData = (user, id) => {
   try {
     const docToUpdate = doc(database, "users", id);
     updateDoc(docToUpdate, user).then((res) => {
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      // document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
   } catch (err) {
     // alert(err.message);

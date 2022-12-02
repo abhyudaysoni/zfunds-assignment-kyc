@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import idSlice from "../../store/id-slice";
 
 export const Container = styled.div`
   padding: 0.5rem 1rem;
@@ -35,8 +34,17 @@ const ConfirmPreviewItem = ({ heading, value }) => {
   return (
     <Container isImage={isImage}>
       <p className="heading">{heading || "Not Available"}</p>
-      {isBoolean && <p className="value">{value ? "Yes" : "No"}</p>}
-      {!isImage && <p className="value">{value}</p>}
+
+      {isBoolean && heading !== "Marital Status" && (
+        <p className="value">{value ? "Yes" : "No"}</p>
+      )}
+
+      {isBoolean && heading === "Marital Status" && (
+        <p className="value">{value ? "Married" : "Unmarried"}</p>
+      )}
+
+      {isString && <p className="value">{value ? value : "Not Available"}</p>}
+
       {isImage && (
         <div className="value-container">
           {isImage && <img src={value} alt={value} />}

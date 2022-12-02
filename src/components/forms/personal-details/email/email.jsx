@@ -13,8 +13,8 @@ const domainArray = [
 
 const Email = () => {
   const personal = useSelector((state) => state.personal);
-  const [domain, setDomain] = useState("");
-  const [email, setEmail] = useState(personal.email);
+  const [domain, setDomain] = useState(personal.email.split("@")[1]);
+  const [email, setEmail] = useState(personal.email.split("@")[0]);
   const dispatch = useDispatch();
   const emailHandler = (e) => {
     setEmail(e.target.value);

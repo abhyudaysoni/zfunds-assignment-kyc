@@ -8,7 +8,6 @@ const MaritalStatus = () => {
   const married = useSelector((state) => state.personal.married);
   const dispatch = useDispatch();
   const maritalStatusHandler = (e) => {
-    console.log(e.target.value);
     dispatch(changeMaritalStatus(e.target.value === "married" ? true : false));
     updateData();
   };

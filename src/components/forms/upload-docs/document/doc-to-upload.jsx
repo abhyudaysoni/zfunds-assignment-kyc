@@ -4,14 +4,12 @@ import docContainer from "../../../../assets/doc-container.svg";
 import deleteDoc from "../../../../assets/delete-doc.svg";
 import { ref, uploadBytes, deleteObject } from "firebase/storage";
 import { storage } from "../../../../firebaseConfig";
-import { useGetData } from "../../../../api/api";
 
 const DocToUpload = ({ heading, description, docType, id, img }) => {
   const [doc, setDoc] = useState(null);
   const uploadDocHandler = (e) => {
     setDoc(e.target.files[0]);
   };
-  useGetData();
   const imageRef = ref(storage, `${id}/${docType}`);
   useEffect(() => {
     if (doc === null) {

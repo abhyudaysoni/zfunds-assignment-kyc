@@ -18,6 +18,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     h4 {
       margin: 1rem 0;
     }

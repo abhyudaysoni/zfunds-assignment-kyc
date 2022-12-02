@@ -43,7 +43,9 @@ const ConfirmPreviewItem = ({ heading, value }) => {
         <p className="value">{value ? "Married" : "Unmarried"}</p>
       )}
 
-      {isString && <p className="value">{value ? value : "Not Available"}</p>}
+      {isString && !isImage && (
+        <p className="value">{value ? value : "Not Available"}</p>
+      )}
 
       {isImage && (
         <div className="value-container">

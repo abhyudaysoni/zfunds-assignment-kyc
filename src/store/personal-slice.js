@@ -44,11 +44,8 @@ const personalSlice = createSlice({
       state.gender = action.payload;
     },
     resetPersonal(state, action) {
-      state.married = intitialPersonalState.married;
-      state.fatherName = intitialPersonalState.fatherName;
-      state.motherName = intitialPersonalState.motherName;
-      state.email = intitialPersonalState.email;
-      state.annualIncome = intitialPersonalState.annualIncome;
+      state = intitialPersonalState;
+      return state;
     },
     changePersonalDetails(state, action) {
       state = action.payload;

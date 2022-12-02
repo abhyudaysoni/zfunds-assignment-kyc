@@ -19,6 +19,10 @@ const documentsSlice = createSlice({
     setPhoto(state, action) {
       state.photo = action.payload;
     },
+    setDocs(state, action) {
+      state = action.payload;
+      return state;
+    },
     resetDocs(state, action) {
       state = initialDocumentsState;
       return state;
@@ -26,7 +30,7 @@ const documentsSlice = createSlice({
   },
 });
 
-export const { setPan, setSignature, setPhoto, resetDocs } =
+export const { setPan, setSignature, setPhoto, resetDocs, setDocs } =
   documentsSlice.actions;
 
 export default documentsSlice.reducer;

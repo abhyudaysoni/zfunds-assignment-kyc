@@ -4,12 +4,13 @@ import ConfirmPreviewCard from "../UI/confirm-preview-card";
 import { Container } from "./styles";
 import { useNavigate } from "react-router-dom";
 import Button from "../UI/button";
-import { updateData } from "../../api/api";
+import { updateData, useGetData } from "../../api/api";
 import { resetPersonal } from "../../store/personal-slice";
 import { resetDocs } from "../../store/documents-slice";
 import { resetFatca } from "../../store/fatca-slice";
 
 const ConfirmPreview = () => {
+  useGetData();
   const state = useSelector((state) => state);
   const navigate = useNavigate();
   const [terms, setTerms] = useState(false);
@@ -33,6 +34,7 @@ const ConfirmPreview = () => {
     resetPersonal();
     resetDocs();
     resetFatca();
+    updateData(state, state.id);
     navigate("/");
   };
   return (
@@ -108,13 +110,14 @@ const ConfirmPreview = () => {
               Submit
             </Button>
           )}
-        {!state.docs.pan.includes("https://") &&
-          !state.docs.photo.includes("https://") &&
-          !state.docs.signature.includes("https://") && (
-            <h4>
-              You have not uploaded documents. You can not submit the form.
-            </h4>
-          )}
+        {(!state.docs.pan.includes("https://") ||
+          !state.docs.photo.includes("https://") ||
+          !state.docs.signature.includes("https://")) && (
+          <h4>
+            You have not uploaded all the documents. You can not submit the
+            form.
+          </h4>
+        )}
         <Button id="cancel" onClick={cancelHandler}>
           Cancel and go back
         </Button>
